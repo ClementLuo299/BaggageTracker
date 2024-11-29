@@ -1,6 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from rest_framework import generics
+from .serializers import UsrSerializer
+from .models import Usr
 
 # Create your views here.
-def main(request):
-    return HttpResponse("Hello")
+
+#Return all users
+class UsrView(generics.ListAPIView):
+    queryset = Usr.objects.all()
+    serializer_class = UsrSerializer
+
