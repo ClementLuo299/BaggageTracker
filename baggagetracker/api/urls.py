@@ -1,6 +1,8 @@
 from django.urls import path
+
+#Import views
 from .views import UsrView
 
 urlpatterns = [
-    path('', UsrView.as_view())
+    path('usr', UsrView.as_view())
 ]

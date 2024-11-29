@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from rest_framework import generics
+
+#Import serializers
 from .serializers import UsrSerializer
+
+#Import models
 from .models import Usr
 
 # Create your views here.
