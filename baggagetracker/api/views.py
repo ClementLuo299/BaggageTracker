@@ -10,7 +10,7 @@ from .models import Usr
 # Create your views here.
 
 #Return all users
-class UsrView(generics.ListAPIView):
+class UsrView(generics.CreateAPIView):
     queryset = Usr.objects.all()
     serializer_class = UsrSerializer
 
