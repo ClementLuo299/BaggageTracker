@@ -1,8 +1,49 @@
 from django.urls import path
 
-#Import views
-from .views import UsrView
+from .views import (
+    UsrView,
+    AirlineView,
+    EmployeeView,
+    PhoneNumbersView,
+    CustomerView,
+    AirportView,
+    AirplaneView,
+    LocView,
+    SecurityCheckpointView,
+    StorageFacilityView,
+    BaggageCarouselView,
+    ItineraryView,
+    FlightLegView,
+    ItineraryFlightsView,
+    BaggageView,
+    LocationUpdateView,
+    IncidentView,
+    IncidentEmployeesView,
+    NotificationView,
+    NotificationSentView,
+    NotificationSubjectView
+)
 
 urlpatterns = [
-    path('usr', UsrView.as_view())
+    path('users/', UsrView.as_view(), name='user-create'),
+    path('airlines/', AirlineView.as_view(), name='airline-create'),
+    path('employees/', EmployeeView.as_view(), name='employee-create'),
+    path('phone_numbers/', PhoneNumbersView.as_view(), name='phone-create'),
+    path('customers/', CustomerView.as_view(), name='customer-create'),
+    path('airports/', AirportView.as_view(), name='airport-create'),
+    path('airplanes/', AirplaneView.as_view(), name='airplane-create'),
+    path('locations/', LocView.as_view(), name='location-create'),
+    path('security_checkpoints/', SecurityCheckpointView.as_view(), name='security-checkpoint-create'),
+    path('storage_facilities/', StorageFacilityView.as_view(), name='storage-facility-create'),
+    path('baggage_carousels/', BaggageCarouselView.as_view(), name='carousel-create'),
+    path('itineraries/', ItineraryView.as_view(), name='itinerary-create'),
+    path('flight_legs/', FlightLegView.as_view(), name='flight-leg-create'),
+    path('itinerary_flights/', ItineraryFlightsView.as_view(), name='itinerary-flight-create'),
+    path('baggage/', BaggageView.as_view(), name='baggage-create'),
+    path('location_updates/', LocationUpdateView.as_view(), name='location-update-create'),
+    path('incidents/', IncidentView.as_view(), name='incident-create'),
+    path('incident_employees/', IncidentEmployeesView.as_view(), name='incident-employee-create'),
+    path('notifications/', NotificationView.as_view(), name='notification-create'),
+    path('notification_sent/', NotificationSentView.as_view(), name='notification-sent-create'),
+    path('notification_subjects/', NotificationSubjectView.as_view(), name='notification-subject-create'),
 ]
