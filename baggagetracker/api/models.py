@@ -47,7 +47,6 @@ class Airplane(models.Model):
     baggage_capacity = models.IntegerField()
     current_payload = models.IntegerField()
     airline = models.ForeignKey(Airline, on_delete=models.SET_NULL, null=True)
-    destination = models.ForeignKey(Airport, on_delete=models.SET_NULL, null=True, related_name="destination_airplanes")
     coordinates = models.CharField(max_length=20, null=True)
 
 class Loc(models.Model):
