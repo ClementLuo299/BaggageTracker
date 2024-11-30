@@ -121,6 +121,7 @@ class Baggage(models.Model):
     booking_id = models.ForeignKey(Itinerary, on_delete=models.CASCADE)
     is_time_sensitive = models.BooleanField()
     is_hazardous = models.BooleanField()
+    weight = models.IntegerField()
 
     class Meta:
         constraints = [
