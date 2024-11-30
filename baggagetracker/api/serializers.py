@@ -112,12 +112,12 @@ class ItineraryFlightsSerializer(serializers.ModelSerializer):
 
 # Serializer for Baggage model
 class BaggageSerializer(serializers.ModelSerializer):
-    passport_no = CustomerSerializer()  # Nested CustomerSerializer
+    # passport_no = CustomerSerializer()  # No need Nested CustomerSerializer
     booking_id = ItinerarySerializer()  # Nested ItinerarySerializer
 
     class Meta:
         model = Baggage
-        fields = ('tracker_id', 'passport_no', 'tracker_type', 'booking_id', 'is_time_sensitive', 'is_hazardous')
+        fields = ('tracker_id','tracker_type', 'booking_id', 'is_time_sensitive', 'is_hazardous')
 
 # Serializer for LocationUpdate model
 class LocationUpdateSerializer(serializers.ModelSerializer):
