@@ -51,7 +51,7 @@ class AirplaneSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Airplane
-        fields = ('registration_no', 'airplane_type', 'baggage_capacity', 'current_payload', 'airline', 'destination', 'coordinates')
+        fields = ('registration_no', 'airplane_type', 'baggage_capacity', 'current_payload', 'airline', 'coordinates')
 
 # Serializer for Loc model
 class LocSerializer(serializers.ModelSerializer):
