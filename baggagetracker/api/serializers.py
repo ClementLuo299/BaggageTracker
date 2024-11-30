@@ -8,6 +8,12 @@ class UsrSerializer(serializers.ModelSerializer):
         model = Usr
         fields = ('user_id', 'fname', 'mname', 'lname', 'street', 'country', 'postal_code', 'email')
 
+#Create new serializers for sending data
+class CreateUsrSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Usr
+        fields = ('')
+
 # Serializer for Airline model
 class AirlineSerializer(serializers.ModelSerializer):
     class Meta:
