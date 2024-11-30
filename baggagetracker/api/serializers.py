@@ -117,7 +117,7 @@ class BaggageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Baggage
-        fields = ('tracker_id','tracker_type', 'is_time_sensitive', 'is_hazardous', 'weight' 'booking_id')
+        fields = ('tracker_id','tracker_type', 'is_time_sensitive', 'is_hazardous', 'weight','booking_id')
 
 # Serializer for LocationUpdate model
 class LocationUpdateSerializer(serializers.ModelSerializer):
