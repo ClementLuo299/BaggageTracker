@@ -48,7 +48,6 @@ class AirportSerializer(serializers.ModelSerializer):
 # Serializer for Airplane model
 class AirplaneSerializer(serializers.ModelSerializer):
     airline = AirlineSerializer()  # Nested AirlineSerializer
-    destination = AirportSerializer()  # Nested AirportSerializer
 
     class Meta:
         model = Airplane
