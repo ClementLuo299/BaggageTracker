@@ -6,6 +6,6 @@ export default class EmployeeLogin extends Component{
     }
 
     render() {
-        return <p>This is the employee login page</p>
+        return <p>This is the employee login page</p>;
     }
 }

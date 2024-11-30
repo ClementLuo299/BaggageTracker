@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 
 import HomePage from "./HomePage";
-import CustomerLogin from "./CustomerLogin";
-import EmployeeLogin from "./EmployeeLogin";
 
 export default class App extends Component{
     constructor(props){
@@ -14,8 +12,6 @@ export default class App extends Component{
         return (
             <div>
                 <HomePage />
-                <CustomerLogin />
-                <EmployeeLogin />
             </div>);
     }
 }

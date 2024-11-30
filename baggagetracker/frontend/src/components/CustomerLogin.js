@@ -6,6 +6,6 @@ export default class CustomerLogin extends Component{
     }
 
     render() {
-        return <p>This is the customer login page</p>
+        return <p>This is the customer login page</p>;
     }
 }
