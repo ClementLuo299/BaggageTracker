@@ -14,33 +14,35 @@ export default class HomePage extends Component{
     render() {
         return (
             <Router>
-                <Grid container spacing={1} align="center">
-                    <Grid item xs={12}>
-                        <Typography component ="h1" variant="h1">
-                            Baggage Tracker
-                        </Typography>
-                    </Grid>
-
-                    <Grid item xs={12}>
-                        <Typography component ="h4" variant="h4">
-                            Select Login
-                        </Typography>
-                    </Grid>
-
-                    <Grid item xs={12}>
-                        <Button color="primary" variant="contained" href="/login">
-                            Customer Login
-                        </Button>
-                    </Grid>
-
-                    
-                    <Grid item xs={12}>
-                        <Button color="secondary" variant="contained" href ="/emplogin">
-                            Employee Login
-                        </Button>
-                    </Grid>
-                </Grid>
                 <Routes>
+                    <Route path="/" element ={
+                        <Grid container spacing={1} align="center">
+                            <Grid item xs={12}>
+                                <Typography component ="h1" variant="h1">
+                                    Baggage Tracker
+                                </Typography>
+                            </Grid>
+        
+                            <Grid item xs={12}>
+                                <Typography component ="h4" variant="h4">
+                                    Select Login
+                                </Typography>
+                            </Grid>
+        
+                            <Grid item xs={12}>
+                                <Button color="primary" variant="contained" href="/login">
+                                    Customer Login
+                                </Button>
+                            </Grid>
+        
+                            
+                            <Grid item xs={12}>
+                                <Button color="secondary" variant="contained" href ="/emplogin">
+                                    Employee Login
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    }/>
                     <Route path="/login" element={<CustomerLogin/>}/>
                     <Route path="/emplogin" element={<EmployeeLogin/>}/>
                 </Routes>
