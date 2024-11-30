@@ -2,6 +2,7 @@ from rest_framework import generics, status
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.contrib.auth import authenticate
 
 from .serializers import (
     UsrSerializer,
@@ -155,3 +156,20 @@ class NotificationSentView(generics.CreateAPIView):
 class NotificationSubjectView(generics.CreateAPIView):
     queryset = NotificationSubject.objects.all()
     serializer_class = NotificationSubjectSerializer
+
+# Employee login set-up
+class EmployeeLoginView(APIView):
+    def post(self, request):
+        # Extract credentials from request
+        employee_id = request.data.get('employeeId')
+        password = request.data.get('password')
+
+        # Authenticate the employee using Django's built-in authentication
+        user = authenticate(username=employee_id, password=password)
+
+        if user is not None:
+            # If the user exists and the password is correct, login is successful
+            return Response({"message": "Login successful"}, status=status.HTTP_200_OK)
+        else:
+            # Invalid credentials
+            return Response({"message": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST)

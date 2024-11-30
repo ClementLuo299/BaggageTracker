@@ -21,7 +21,8 @@ from .views import (
     IncidentEmployeesView,
     NotificationView,
     NotificationSentView,
-    NotificationSubjectView
+    NotificationSubjectView,
+    EmployeeLoginView
 )
 
 urlpatterns = [
@@ -46,4 +47,5 @@ urlpatterns = [
     path('notifications/', NotificationView.as_view(), name='notification-create'),
     path('notification_sent/', NotificationSentView.as_view(), name='notification-sent-create'),
     path('notification_subjects/', NotificationSubjectView.as_view(), name='notification-subject-create'),
+    path('api/employee/login/', EmployeeLoginView.as_view(), name='employee-login'),
 ]
