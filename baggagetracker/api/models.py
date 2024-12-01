@@ -44,8 +44,8 @@ class Airport(models.Model):
 class Airplane(models.Model):
     registration_no = models.CharField(max_length=10, primary_key=True)
     airplane_type = models.CharField(max_length=30, null=True)
-    baggage_capacity = models.IntegerField()
-    current_payload = models.IntegerField()
+    baggage_capacity = models.IntegerField(default = 0)
+    current_payload = models.IntegerField(default = 0)
     airline = models.ForeignKey(Airline, on_delete=models.SET_NULL, null=True)
     coordinates = models.CharField(max_length=20, null=True)
 
@@ -121,7 +121,7 @@ class Baggage(models.Model):
     booking_id = models.ForeignKey(Itinerary, on_delete=models.CASCADE)
     is_time_sensitive = models.BooleanField()
     is_hazardous = models.BooleanField()
-    weight = models.DecimalField(max_digits=10, decimal_places=2)
+    weight = models.DecimalField(max_digits=10, decimal_places=2, default = 0)
 
     class Meta:
         constraints = [
