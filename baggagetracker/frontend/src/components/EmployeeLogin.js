@@ -39,6 +39,17 @@ export default class EmployeeLogin extends Component {
         console.log(this.state.UserID);
         console.log(this.state.Password);
         console.log(this.state.showPassword);
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({
+                UserID: this.state.UserID,
+                Password: this.state.Password
+            })
+        };
+
+        fetch('/api/')
     }
 
     _passwordShowButton(){

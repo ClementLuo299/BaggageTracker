@@ -22,6 +22,8 @@ class Airline(models.Model):
 class Employee(models.Model):
     user_id = models.OneToOneField(Usr, on_delete=models.CASCADE, primary_key=True)
     employee_role = models.CharField(max_length=50, null=True)
+    password = models.CharField(max_length=50, null = True)
+    is_executive = models.BooleanField(default = False)
     airline = models.ForeignKey(Airline, on_delete=models.SET_NULL, null=True)
 
 class PhoneNumbers(models.Model):
