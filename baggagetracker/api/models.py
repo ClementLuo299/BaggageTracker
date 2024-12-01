@@ -8,12 +8,12 @@ from django.db import models
 class Usr(models.Model):
     user_id = models.CharField(max_length=100, primary_key=True)
     fname = models.CharField(max_length=50)
-    mname = models.CharField(max_length=50,null=True)
+    mname = models.CharField(max_length=50,null=True, blank = True)
     lname = models.CharField(max_length=50)
-    street = models.CharField(max_length=100,null=True)
-    country = models.CharField(max_length=100,null=True)
-    postal_code = models.CharField(max_length=50,null=True)
-    email = models.CharField(max_length=50,null=True)
+    street = models.CharField(max_length=100,null=True, blank = True)
+    country = models.CharField(max_length=100,null=True, blank = True)
+    postal_code = models.CharField(max_length=50,null=True, blank = True)
+    email = models.CharField(max_length=50,null=True, blank = True)
 
 class Airline(models.Model):
     airline_name = models.CharField(max_length=100, primary_key=True)
@@ -21,10 +21,10 @@ class Airline(models.Model):
 
 class Employee(models.Model):
     user_id = models.OneToOneField(Usr, on_delete=models.CASCADE, primary_key=True)
-    employee_role = models.CharField(max_length=50, null=True)
-    password = models.CharField(max_length=50, null = True)
+    employee_role = models.CharField(max_length=50, null=True, blank = True)
+    password = models.CharField(max_length=50, null = True, blank = True)
     is_executive = models.BooleanField(default = False)
-    airline = models.ForeignKey(Airline, on_delete=models.SET_NULL, null=True)
+    airline = models.ForeignKey(Airline, on_delete=models.SET_NULL, null=True, blank = True)
 
 class PhoneNumbers(models.Model):
     user = models.ForeignKey(Usr, on_delete=models.CASCADE)
@@ -34,22 +34,22 @@ class PhoneNumbers(models.Model):
 
 class Customer(models.Model):
     passport_no = models.CharField(max_length=100, primary_key=True)
-    country_citizenship = models.CharField(max_length=50, null=True)
+    country_citizenship = models.CharField(max_length=50, null=True, blank = True)
     user = models.OneToOneField(Usr, on_delete=models.CASCADE)
 
 class Airport(models.Model):
     code = models.CharField(max_length=4, primary_key=True)
     airport_name = models.CharField(max_length=30)
-    country = models.CharField(max_length=50, null=True)
-    city = models.CharField(max_length=30, null=True)
+    country = models.CharField(max_length=50, null=True, blank = True)
+    city = models.CharField(max_length=30, null=True, blank = True)
 
 class Airplane(models.Model):
     registration_no = models.CharField(max_length=10, primary_key=True)
-    airplane_type = models.CharField(max_length=30, null=True)
+    airplane_type = models.CharField(max_length=30, null=True, blank = True)
     baggage_capacity = models.IntegerField(default = 0)
     current_payload = models.IntegerField(default = 0)
-    airline = models.ForeignKey(Airline, on_delete=models.SET_NULL, null=True)
-    coordinates = models.CharField(max_length=20, null=True)
+    airline = models.ForeignKey(Airline, on_delete=models.SET_NULL, null=True, blank = True)
+    coordinates = models.CharField(max_length=20, null=True, blank = True)
 
 class Loc(models.Model):
     location_name = models.CharField(max_length=100)
@@ -119,7 +119,7 @@ class ItineraryFlights(models.Model):
 class Baggage(models.Model):
     tracker_id = models.CharField(max_length=100)
     passport_no = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    tracker_type = models.CharField(max_length=20, null=True)
+    tracker_type = models.CharField(max_length=20, null=True, blank = True)
     booking_id = models.ForeignKey(Itinerary, on_delete=models.CASCADE)
     is_time_sensitive = models.BooleanField()
     is_hazardous = models.BooleanField()
@@ -152,7 +152,7 @@ class Incident(models.Model):
     is_delayed = models.BooleanField()
     incident_time = models.DateTimeField()
     incident_resolved = models.BooleanField()
-    incident_description = models.TextField(null=True)
+    incident_description = models.TextField(null=True, blank = True)
     incident_location = models.ForeignKey(Loc, on_delete=models.CASCADE)
 
 class IncidentEmployees(models.Model):
