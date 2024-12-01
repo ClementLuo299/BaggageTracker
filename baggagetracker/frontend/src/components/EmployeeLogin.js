@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { TextField, Button, Grid, Typography, Alert, InputAdornment, IconButton } from "@material-ui/core";
+import { TextField, Button, Grid, Typography, Alert, InputAdornment, IconButton, FormControl, OutlinedInput } from "@material-ui/core";
+import { Visibility, VisibilityOff} from "@mui/icons-material"
 import {BrowserRouter as Router, Routes, Route, Link, Redirect} from "react-router-dom";
 
 export default class EmployeeLogin extends Component {
@@ -9,11 +10,13 @@ export default class EmployeeLogin extends Component {
             UserID: "",
             Password: "",
             error: "",
+            showPassword: false
         }
 
         this._handleIDTextFieldChange = this._handleIDTextFieldChange.bind(this);
         this._handlePassTextFieldChange = this._handlePassTextFieldChange.bind(this);
-        this._enterButtonPressed = this._enterButtonPressed.bind(this)
+        this._enterButtonPressed = this._enterButtonPressed.bind(this);
+        this._passwordShowButton = this._passwordShowButton.bind(this);
     }
 
     _handleIDTextFieldChange(e){
@@ -35,10 +38,15 @@ export default class EmployeeLogin extends Component {
     _enterButtonPressed(){
         console.log(this.state.UserID);
         console.log(this.state.Password);
+        console.log(this.state.showPassword);
     }
 
     _passwordShowButton(){
-        setShowPassword(!showPassword);
+        this.setState(
+            {
+                showPassword: !this.state.showPassword
+            }
+        )
     }
 
     render() {
@@ -54,7 +62,7 @@ export default class EmployeeLogin extends Component {
                     <TextField
                         error = {this.state.error}
                         label = "User ID"
-                        placeholder = "Enter Your User ID Here"
+                        placeholder = "Enter Your User ID"
                         value = {this.state.UserID}
                         defaultValue = {this.state.UserID}
                         helperText = {this.state.error}
@@ -64,16 +72,26 @@ export default class EmployeeLogin extends Component {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <TextField
+                    <TextField                         
                         error = {this.state.error}
                         label = "Password"
-                        placeholder = "Enter Your Password Here"
+                        placeholder = "Enter Your Password"
                         value = {this.state.Password}
                         defaultValue = {this.state.Password}
+                        type={this.state.showPassword ? 'text' : 'password'}
                         helperText = {this.state.error}
                         variant = "outlined"
                         onChange = {this._handlePassTextFieldChange}
-                    />
+                        InputProps = {{
+                            endAdornment:
+                                <InputAdornment position = "end">
+                                    <IconButton edge="end" onClick={this._passwordShowButton}>
+                                        {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton>
+                                </InputAdornment>
+                        }}
+                        >
+                    </TextField>
                 </Grid>
 
                 <Grid item xs={12}>
