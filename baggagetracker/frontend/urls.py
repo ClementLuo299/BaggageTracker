@@ -6,5 +6,6 @@ urlpatterns = [
     path('', index),
     path('login/', index),
     path('emplogin/',index),
-    path('employees/<str:userID>', index)
-]
+    path('employees/<str:userID>', index),
+    path('empcheckin', index)
+    ]

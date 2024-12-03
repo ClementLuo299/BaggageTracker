@@ -6,6 +6,7 @@ import {Button, Grid, Typography} from "@material-ui/core";
 import CustomerLogin from "./CustomerLogin";
 import EmployeeLogin from "./EmployeeLogin";
 import EmployeeDashboard from "./EmployeeDashboard";
+import EmployeeCheckIn from "./EmployeeCheckIn";
 
 export default class HomePage extends Component{
     constructor(props) {
@@ -47,6 +48,7 @@ export default class HomePage extends Component{
                     <Route path="/login" element={<CustomerLogin/>}/>
                     <Route path="/emplogin" element={<EmployeeLogin/>}/>
                     <Route path="/employees/:userID" element = {<EmployeeDashboard/>}/>
+                    <Route path="/empcheckin" element = {<EmployeeCheckIn/>}/>
                 </Routes>
             </Router>
         );
