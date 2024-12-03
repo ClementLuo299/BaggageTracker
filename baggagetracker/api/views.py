@@ -25,7 +25,8 @@ from .serializers import (
     IncidentEmployeesSerializer,
     NotificationSerializer,
     NotificationSentSerializer,
-    NotificationSubjectSerializer
+    NotificationSubjectSerializer,
+    GetEmployeeSerializer
 )
 
 from .models import (

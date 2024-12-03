@@ -4,11 +4,9 @@ import { useParams } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import ToolBar from "@material-ui/core/Toolbar";
 import ToolbarGroup from "@material-ui/core/Toolbar";
-import{Button, Grid, Box, IconButton} from "@material-ui/core";
+import{Button, IconButton} from "@material-ui/core";
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
-
-const pages = ["Dashboard","Check In","Incidents"]
 
 function createData(test,test2){
     return {test,test2};
@@ -23,25 +21,15 @@ const rows = [
 const EmployeeDashboard = () => {
     const {userID} = useParams();
 
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-
     const columns = [
         {field:"test", headerName:"Column 1", width: 100},
         {field:"test2", headerName:"Column 2", width: 100}
     ];
 
     const rows = [
-        {test1:1,test2:1},
+        {test1:userID,test2:userID},
         {test1:2,test2:2}
     ];
-
-    const handleOpenNavMenu = (event) =>{
-        setAnchorElNav(event.currentTarget);
-    }
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    }
 
     return (
         <div>

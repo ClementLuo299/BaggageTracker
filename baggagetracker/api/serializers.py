@@ -14,6 +14,13 @@ class CreateUsrSerializer(serializers.ModelSerializer):
         model = Usr
         fields = ('')
 
+class GetEmployeeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Employee
+        fields = ('user_id','password')
+
+
+
 # Serializer for Airline model
 class AirlineSerializer(serializers.ModelSerializer):
     class Meta:
